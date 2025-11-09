@@ -1,0 +1,32 @@
+classic: false
+blocks:
+  - permission
+  - user
+  - group
+  - size
+  - date
+  - name
+color:
+  when: auto # auto / never / always
+  theme: custom # custom / default
+date: date # date / locale / relative
+dereference: false
+icons:
+  when: auto # always / auto / never
+  theme: fancy # fancy / unicode
+  separator: " "
+indicators: false
+layout: grid # grid / tree / oneline
+recursion:
+  enabled: false
+size: short # default / short / bytes
+permission: rwx # rwx / octal
+sorting:
+  column: name # name / time / size / version
+  reverse: false
+  dir-grouping: first # first / last / none
+no-symlink: false
+total-size: false
+hyperlink: never # always / auto / never
+symlink-arrow: ⇒
+header: false

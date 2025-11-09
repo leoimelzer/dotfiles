@@ -1,0 +1,5 @@
+--ignore .gitignore
+--ignore resources
+--ignore scripts
+--ignore Makefile
+--ignore Makefile.config

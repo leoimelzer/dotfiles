@@ -1,0 +1,154 @@
+[general]
+working_directory = "workspace"
+
+[terminal.shell]
+program = "/usr/bin/zsh"
+
+[window]
+dynamic_title = true
+opacity = 0.98
+resize_increments = true
+title = ""
+
+[window.dimensions]
+columns = 83
+lines = 20
+
+[window.padding]
+x = 10
+y = 4
+
+[font]
+size = 11
+
+[font.normal]
+family = "FiraCode Nerd Font Light"
+
+[mouse]
+hide_when_typing = true
+
+# ------------------------- #
+# --- Gruvbox Dark Hard --- #
+# ------------------------- #
+
+# [colors.primary]
+# background = "#1b1b1b"
+# foreground = "#ebdbb2"
+
+# [colors.normal]
+# black = "#1b1b1b"
+# blue = "#458588"
+# cyan = "#689d6a"
+# green = "#98971a"
+# magenta = "#b16286"
+# red = "#cc241d"
+# white = "#a89984"
+# yellow = "#d79921"
+
+# [colors.bright]
+# black = "#928374"
+# blue = "#83a598"
+# cyan = "#8ec07c"
+# green = "#b8bb26"
+# magenta = "#d3869b"
+# red = "#fb4934"
+# white = "#ebdbb2"
+# yellow = "#fabd2f"
+
+# ------------------------- #
+# ---    Gruvbox Dark   --- #
+# ------------------------- #
+
+# [colors.primary]
+# background = "#282828"
+# foreground = "#ebdbb2"
+
+# [colors.normal]
+# black = "#282828"
+# blue = "#458588"
+# cyan = "#689d6a"
+# green = "#98971a"
+# magenta = "#b16286"
+# red = "#cc241d"
+# white = "#a89984"
+# yellow = "#d79921"
+
+# [colors.bright]
+# black = "#928374"
+# blue = "#83a598"
+# cyan = "#8ec07c"
+# green = "#b8bb26"
+# magenta = "#d3869b"
+# red = "#fb4934"
+# white = "#ebdbb2"
+# yellow = "#fabd2f"
+
+# ------------------------- #
+# ---     Lovelace      --- #
+# ------------------------- #
+
+# [colors.primary]
+# background = '#1D1F28'
+# foreground = '#FDFDFD'
+
+# [colors.normal]
+# # Bright colors
+# black = '#282A36'
+# red = '#F37F97'
+# green = '#5ADECD'
+# yellow = '#F2A272'
+# blue = '#8897F4'
+# magenta = '#C574DD'
+# cyan = '#79E6F3'
+# white = '#FDFDFD'
+
+# [colors.bright]
+# black = '#414458'
+# red = '#FF4971'
+# green = '#18E3C8'
+# yellow = '#EBCB8B'
+# blue = '#FF8037'
+# magenta = '#556FFF'
+# cyan = '#3FDCEE'
+# white = '#BEBEC1'
+
+# ------------------------- #
+# ---     Taerminal     --- #
+# ------------------------- #
+
+# [colors.primary]
+# background = '#26282a'
+# foreground = '#f0f0f0'
+
+# [colors.cursor]
+# background = '#f0f0f0'
+# foreground = '#26282a'
+
+# [colors.normal]
+# black = '#26282a'
+# red = '#ff8878'
+# green = '#b4fb73'
+# yellow = '#fffcb7'
+# blue = '#8bbce5'
+# magenta = '#ffb2fe'
+# cyan = '#a2e1f8'
+# white = '#f1f1f1'
+
+# [colors.bright]
+# black = '#6f6f6f'
+# red = '#fe978b'
+# green = '#d6fcba'
+# yellow = '#fffed5'
+# blue = '#c2e3ff'
+# magenta = '#ffc6ff'
+# cyan = '#c0e9f8'
+# white = '#ffffff'
+
+[cursor]
+blink_interval = 600
+blink_timeout = 0
+unfocused_hollow = false
+
+[cursor.style]
+blinking = "Always"
+shape = "Underline"
