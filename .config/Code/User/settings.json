@@ -32,7 +32,8 @@
   "terminal.integrated.fontFamily": "FiraCode Nerd Font Light",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "always"
+    "source.fixAll.eslint": "always",
+    "source.fixAll.markdownlint": "always"
   },
   "eslint.enable": true,
   "eslint.format.enable": true,
@@ -67,7 +68,7 @@
   "sqldeveloper.sqlHistory.historyLimit": 500,
   "sqldeveloper.telemetry.enabled": false,
   "github.copilot.enable": {
-    "*": true
+    "*": false
   },
   "window.customTitleBarVisibility": "never"
 }
