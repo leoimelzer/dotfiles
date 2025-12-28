@@ -5,6 +5,7 @@ plugins=(
   command-not-found
   zsh-syntax-highlighting
   zsh-autosuggestions
+  direnv
 )
 
 #--------------------------------------------------------------------------------------#
@@ -52,3 +53,5 @@ alias clipboard="xclip -selection CLIPBOARD"
 export TERM=xterm-256color
 
 export PATH=$PATH:~/.local/bin
+
+export DIRENV_LOG_FORMAT=''

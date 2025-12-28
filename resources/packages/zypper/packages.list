@@ -26,3 +26,4 @@ gnome-software-plugin-flatpak
 zip
 wl-clipboard
 libgthread-2_0-0
+direnv
