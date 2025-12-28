@@ -3,6 +3,7 @@
 softwares_install() {
   oh_my_zsh_install
   sdkman_install
+  taskfile_install
 }
 
 softwares_config() {
@@ -21,6 +22,10 @@ oh_my_zsh_install() {
 
 sdkman_install() {
   curl -s "https://get.sdkman.io" | bash
+}
+
+taskfile_install(){
+  sh -c "$(curl -fsSL https://taskfile.dev/install.sh)" -- -b ~/.local/bin
 }
 
 dotfiles_config() {
