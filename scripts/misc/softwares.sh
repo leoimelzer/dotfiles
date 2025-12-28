@@ -2,6 +2,7 @@
 
 softwares_install() {
   oh_my_zsh_install
+  fnm_install
   sdkman_install
   taskfile_install
   devbox_install
@@ -19,6 +20,10 @@ oh_my_zsh_install() {
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/
   git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions/
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+}
+
+fnm_install() {
+  curl -fsSL https://fnm.vercel.app/install | bash
 }
 
 sdkman_install() {
