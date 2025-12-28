@@ -1,4 +1,4 @@
---ignore .gitignore
+--ignore README.md
 --ignore resources
 --ignore scripts
 --ignore Makefile
