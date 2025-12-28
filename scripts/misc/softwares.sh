@@ -4,6 +4,7 @@ softwares_install() {
   oh_my_zsh_install
   sdkman_install
   taskfile_install
+  devbox_install
 }
 
 softwares_config() {
@@ -26,6 +27,10 @@ sdkman_install() {
 
 taskfile_install(){
   sh -c "$(curl -fsSL https://taskfile.dev/install.sh)" -- -b ~/.local/bin
+}
+
+devbox_install(){
+  curl -fsSL https://get.jetify.com/devbox | bash
 }
 
 dotfiles_config() {
