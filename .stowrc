@@ -1,3 +1,4 @@
+--ignore .stowrc
 --ignore README.md
 --ignore resources
 --ignore scripts
