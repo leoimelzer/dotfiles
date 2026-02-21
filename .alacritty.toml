@@ -87,30 +87,30 @@ hide_when_typing = true
 # ---     Lovelace      --- #
 # ------------------------- #
 
-# [colors.primary]
-# background = '#1D1F28'
-# foreground = '#FDFDFD'
+[colors.primary]
+background = '#1D1F28'
+foreground = '#FDFDFD'
 
-# [colors.normal]
-# # Bright colors
-# black = '#282A36'
-# red = '#F37F97'
-# green = '#5ADECD'
-# yellow = '#F2A272'
-# blue = '#8897F4'
-# magenta = '#C574DD'
-# cyan = '#79E6F3'
-# white = '#FDFDFD'
+[colors.normal]
+# Bright colors
+black = '#282A36'
+red = '#F37F97'
+green = '#5ADECD'
+yellow = '#F2A272'
+blue = '#8897F4'
+magenta = '#C574DD'
+cyan = '#79E6F3'
+white = '#FDFDFD'
 
-# [colors.bright]
-# black = '#414458'
-# red = '#FF4971'
-# green = '#18E3C8'
-# yellow = '#EBCB8B'
-# blue = '#FF8037'
-# magenta = '#556FFF'
-# cyan = '#3FDCEE'
-# white = '#BEBEC1'
+[colors.bright]
+black = '#414458'
+red = '#FF4971'
+green = '#18E3C8'
+yellow = '#EBCB8B'
+blue = '#FF8037'
+magenta = '#556FFF'
+cyan = '#3FDCEE'
+white = '#BEBEC1'
 
 # ------------------------- #
 # ---     Taerminal     --- #
@@ -143,6 +143,34 @@ hide_when_typing = true
 # magenta = '#ffc6ff'
 # cyan = '#c0e9f8'
 # white = '#ffffff'
+
+# ------------------------- #
+# ---    Light Modern   --- #
+# ------------------------- #
+
+# [colors.primary]
+# background = "#f5f5f5"
+# foreground = "#1e1e1e"
+
+# [colors.normal]
+# black = "#1e1e1e"
+# blue = "#005fb8"
+# cyan = "#1f8a70"
+# green = "#2d7d46"
+# magenta = "#a23dac"
+# red = "#c72e0f"
+# white = "#d4d4d4"
+# yellow = "#b89500"
+
+# [colors.bright]
+# black = "#6e6e6e"
+# blue = "#267fdb"
+# cyan = "#2aa198"
+# green = "#4caf50"
+# magenta = "#c586c0"
+# red = "#e51400"
+# white = "#ffffff"
+# yellow = "#dcdcaa"
 
 [cursor]
 blink_interval = 600
