@@ -2,7 +2,7 @@
   "window.titleBarStyle": "native",
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}",
   "window.menuBarVisibility": "hidden",
-  "workbench.colorTheme": "Flare Theme",
+  "workbench.colorTheme": "Min Dark",
   "workbench.activityBar.location": "top",
   "workbench.statusBar.visible": false,
   "workbench.layoutControl.enabled": false,

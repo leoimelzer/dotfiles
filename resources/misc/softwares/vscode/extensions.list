@@ -3,6 +3,7 @@ formulahendry.code-runner
 usernamehw.errorlens
 dbaeumer.vscode-eslint
 miguelsolorio.fluent-icons
+miguelsolorio.min-theme
 pyxel.flare-theme
 github.copilot
 github.copilot-chat
@@ -15,7 +16,6 @@ pflannery.vscode-versionlens
 editorconfig.editorconfig
 expo.vscode-expo-theme
 expo.vscode-expo-tools
-oracle.sql-developer
 redhat.vscode-yaml
 diemasmichiels.emulate
 tamasfe.even-better-toml
