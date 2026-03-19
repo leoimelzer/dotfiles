@@ -59,7 +59,7 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.autoClosingTags": true,
   "security.workspace.trust.untrustedFiles": "open",
-  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.ignoreTrimWhitespace": true,
   "extensions.ignoreRecommendations": true,
   "window.commandCenter": false,
   "explorer.confirmDragAndDrop": false,
