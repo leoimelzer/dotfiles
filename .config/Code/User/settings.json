@@ -38,6 +38,12 @@
   "eslint.enable": true,
   "eslint.format.enable": true,
   "editor.formatOnSave": true,
+  "[sql]": {
+    "editor.formatOnSave": false
+  },
+  "[markdown]": {
+    "editor.formatOnSave": false
+  },
   "errorLens.gutterIconsEnabled": true,
   "errorLens.gutterIconSet": "default",
   "errorLens.gutterIconSize": "80%",
@@ -53,22 +59,22 @@
   "editor.tabSize": 2,
   "editor.autoClosingBrackets": "always",
   "explorer.compactFolders": false,
-  "typescript.referencesCodeLens.enabled": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.autoClosingTags": true,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "javascript.autoClosingTags": true,
+  "js/ts.referencesCodeLens.enabled": true,
+  "js/ts.updateImportsOnFileMove.enabled": "never",
+  "js/ts.autoClosingTags": true,
   "security.workspace.trust.untrustedFiles": "open",
-  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.ignoreTrimWhitespace": false,
   "extensions.ignoreRecommendations": true,
   "window.commandCenter": false,
   "explorer.confirmDragAndDrop": false,
   "chat.commandCenter.enabled": false,
   "symbols.hidesExplorerArrows": true,
-  "sqldeveloper.sqlHistory.historyLimit": 500,
-  "sqldeveloper.telemetry.enabled": false,
   "github.copilot.enable": {
     "*": false
   },
-  "window.customTitleBarVisibility": "never"
+  "window.customTitleBarVisibility": "never",
+  "telemetry.feedback.enabled": false,
+  "telemetry.telemetryLevel": "off",
+  "terminal.integrated.mouseWheelScrollSensitivity": 3,
+  "terminal.integrated.gpuAcceleration": "off"
 }
