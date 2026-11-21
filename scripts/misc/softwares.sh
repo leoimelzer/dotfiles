@@ -108,6 +108,9 @@ zsh_config() {
 
 ghostty_config() {
   local ghostty_bin
+
+  mkdir -p "${HOME}/workspace"
+
   ghostty_bin="$(command -v ghostty)" || return 0
   PATH="${PATH}:/usr/sbin" has update-alternatives || return 0
 
