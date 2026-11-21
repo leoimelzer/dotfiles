@@ -1,6 +1,5 @@
 formulahendry.auto-rename-tag
 formulahendry.auto-close-tag
-formulahendry.code-runner
 usernamehw.errorlens
 mikestead.dotenv
 dbaeumer.vscode-eslint
@@ -8,20 +7,13 @@ esbenp.prettier-vscode
 miguelsolorio.fluent-icons
 miguelsolorio.min-theme
 pyxel.flare-theme
-github.copilot
-github.copilot-chat
-eamodio.gitlens
-unifiedjs.vscode-mdx
 adpyke.vscode-sql-formatter
 miguelsolorio.symbols
 bradlc.vscode-tailwindcss
 pflannery.vscode-versionlens
 editorconfig.editorconfig
-expo.vscode-expo-theme
 expo.vscode-expo-tools
 clinyong.vscode-css-modules
 bierner.comment-tagged-templates
 redhat.vscode-yaml
 diemasmichiels.emulate
-tamasfe.even-better-toml
-davidanson.vscode-markdownlint

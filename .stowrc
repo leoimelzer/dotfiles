@@ -1,6 +1,8 @@
---ignore .stowrc
---ignore README.md
---ignore resources
---ignore scripts
---ignore Makefile
---ignore Makefile.config
+--ignore=\.stowrc
+--ignore=README\.md
+--ignore=PROMPT\.md
+--ignore=Taskfile\.yml
+--ignore=bootstrap\.sh
+--ignore=resources
+--ignore=scripts
+--ignore=\.task

@@ -1,1 +1,2 @@
-https://packages.microsoft.com/keys/microsoft.asc
+# GPG keys to import, one URL per line.
+# https://example.com/keys/vendor.asc

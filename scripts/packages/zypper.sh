@@ -1,30 +1,66 @@
 #!/bin/bash
 
+source "$(dirname "${BASH_SOURCE[0]}")/../lib.sh"
+
+ZYPPER=(sudo zypper --non-interactive --gpg-auto-import-keys)
+
 zypper_install() {
-  install_packages
-  install_packages_from_source
+  zypper_install_packages
+  zypper_install_packman
+  zypper_install_rpm
 }
 
-install_packages() {
-  grep -vE '^\s*(#|$)' ${RESOURCES}/packages/zypper/packages.list | xargs sudo zypper install -y
+zypper_install_packages() {
+  local packages
+
+  mapfile -t packages < <(read_list "${RESOURCES}/packages/zypper/packages.list")
+
+  [ ${#packages[@]} -eq 0 ] && return 0
+
+  "${ZYPPER[@]}" install "${packages[@]}"
 }
 
-install_packages_from_source() {
-  # --- packman --- #
+zypper_add_repo() {
+  local url="$1" alias="$2"
 
-  grep -vE '^\s*(#|$)' ${RESOURCES}/packages/packman/sources.list | xargs sudo zypper ar -cfp 90
-  sudo zypper refresh
-  sudo zypper dup --from packman --allow-vendor-change
-  grep -vE '^\s*(#|$)' ${RESOURCES}/packages/packman/packages.list | xargs sudo zypper install -y --from packman
+  if ! zypper lr "$alias" &> /dev/null; then
+    "${ZYPPER[@]}" addrepo -cfp 90 "$url" "$alias"
+  fi
+}
 
-  # --- rpm --- #
+zypper_install_packman() {
+  local packages
 
-  grep -vE '^\s*(#|$)' ${RESOURCES}/packages/rpm/sources.list | xargs sudo rpm --import
+  mapfile -t packages < <(read_list "${RESOURCES}/packages/packman/packages.list")
 
-  grep -vE '^\s*(#|$)' "${RESOURCES}/packages/rpm/keys.list" | \
-  while read -r PACKAGE KEY; do
-    echo -e "${KEY}" | sudo tee "/etc/zypp/repos.d/${PACKAGE}.repo" > /dev/null
+  [ ${#packages[@]} -eq 0 ] && return 0
+
+  read_list "${RESOURCES}/packages/packman/sources.list" | while read -r url alias; do
+    zypper_add_repo "$url" "$alias"
   done
 
-  grep -vE '^\s*(#|$)' ${RESOURCES}/packages/rpm/packages.list | xargs sudo zypper install -y
+  "${ZYPPER[@]}" refresh
+  "${ZYPPER[@]}" dist-upgrade --from packman --allow-vendor-change
+  "${ZYPPER[@]}" install --from packman "${packages[@]}"
 }
+
+zypper_install_rpm() {
+  local packages
+
+  mapfile -t packages < <(read_list "${RESOURCES}/packages/rpm/packages.list")
+
+  [ ${#packages[@]} -eq 0 ] && return 0
+
+  read_list "${RESOURCES}/packages/rpm/sources.list" | while read -r key; do
+    sudo rpm --import "$key"
+  done
+
+  read_list "${RESOURCES}/packages/rpm/keys.list" | while read -r name content; do
+    echo -e "$content" | sudo tee "/etc/zypp/repos.d/${name}.repo" > /dev/null
+  done
+
+  "${ZYPPER[@]}" refresh
+  "${ZYPPER[@]}" install "${packages[@]}"
+}
+
+run_main "$@"

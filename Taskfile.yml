@@ -1,0 +1,95 @@
+version: '3'
+
+vars:
+  SCRIPTS: '{{.ROOT_DIR}}/scripts'
+
+tasks:
+  default:
+    desc: List available tasks
+    silent: true
+    cmds:
+      - '{{.TASK_EXE}} --list'
+
+  setup:
+    desc: Detect the distro and run its full setup
+    cmds:
+      - |
+        . /etc/os-release
+        case " $ID $ID_LIKE " in
+          *suse*)          {{.TASK_EXE}} opensuse ;;
+          *ubuntu*|*debian*) {{.TASK_EXE}} ubuntu ;;
+          *) echo "Unsupported distro: $ID" >&2; exit 1 ;;
+        esac
+
+  opensuse:
+    desc: Full setup for openSUSE (Tumbleweed)
+    cmds:
+      - task: zypper:install
+      - task: softwares:install
+      - task: softwares:config
+      - task: flatpak:setup
+      - task: flatpak:install
+      - task: gnome:install
+      - task: gnome:setup
+
+  ubuntu:
+    desc: Full setup for Ubuntu and derivatives
+    cmds:
+      - task: snapd:remove
+      - task: apt:install
+      - task: softwares:install
+      - task: softwares:config
+      - task: flatpak:setup
+      - task: flatpak:install
+      - task: gnome:install
+      - task: gnome:setup
+
+  apt:install:
+    desc: Install apt packages (Ubuntu / Debian based)
+    cmds:
+      - bash {{.SCRIPTS}}/packages/apt.sh apt_install
+
+  snapd:remove:
+    desc: Purge snaps and block snapd from being reinstalled
+    cmds:
+      - bash {{.SCRIPTS}}/packages/snapd.sh snapd_remove
+
+  zypper:install:
+    desc: Install zypper, packman and third-party rpm packages (openSUSE / SLE based)
+    cmds:
+      - bash {{.SCRIPTS}}/packages/zypper.sh zypper_install
+
+  flatpak:setup:
+    desc: Add flathub and expose themes/icons to flatpak apps
+    cmds:
+      - bash {{.SCRIPTS}}/packages/flatpak.sh flatpak_setup
+
+  flatpak:install:
+    desc: Install flatpak packages
+    cmds:
+      - bash {{.SCRIPTS}}/packages/flatpak.sh flatpak_install
+
+  gnome:install:
+    desc: Install and enable GNOME extensions
+    cmds:
+      - bash {{.SCRIPTS}}/desktop_environment/gnome.sh gnome_install
+
+  gnome:setup:
+    desc: Apply GNOME settings (gsettings)
+    cmds:
+      - bash {{.SCRIPTS}}/desktop_environment/gnome.sh gnome_setup
+
+  softwares:install:
+    desc: Install oh-my-zsh, fnm, sdkman, task and vscode
+    cmds:
+      - bash {{.SCRIPTS}}/misc/softwares.sh softwares_install
+
+  softwares:config:
+    desc: Configure shell, terminal, dotfiles (stow), tmux and vscode extensions
+    cmds:
+      - bash {{.SCRIPTS}}/misc/softwares.sh softwares_config
+
+  dotfiles:link:
+    desc: Only (re)link the dotfiles into $HOME, backing up conflicting files
+    cmds:
+      - bash {{.SCRIPTS}}/misc/softwares.sh dotfiles_config

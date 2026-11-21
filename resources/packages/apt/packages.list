@@ -1,4 +1,4 @@
-alacritty
+ghostty
 zsh
 tmux
 stow
@@ -24,3 +24,6 @@ google-android-emulator-installer
 flatpak
 gnome-software
 gnome-software-plugin-flatpak
+jq
+git
+unzip

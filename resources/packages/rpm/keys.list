@@ -1,1 +1,2 @@
-vscode [code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc
+# <repo-file-name> <.repo content using \n as line break>
+# vendor [vendor]\nname=Vendor\nbaseurl=https://example.com/rpm\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://example.com/keys/vendor.asc

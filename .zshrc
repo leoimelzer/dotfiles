@@ -45,8 +45,8 @@ source $ZSH/oh-my-zsh.sh
 
 #--------------------------------------------------------------------------------------#
 
-alias ls="lsd"
-alias cat="bat"
+# alias ls="lsd"
+# alias cat="bat"
 alias nvm="fnm"
 alias ssh="TERM=xterm ssh"
 alias clipboard="xclip -selection CLIPBOARD"

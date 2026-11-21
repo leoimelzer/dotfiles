@@ -2,13 +2,14 @@
   "window.titleBarStyle": "native",
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}",
   "window.menuBarVisibility": "hidden",
+  "window.customTitleBarVisibility": "never",
+  "window.commandCenter": false,
   "workbench.colorTheme": "Min Dark",
   "workbench.activityBar.location": "top",
   "workbench.statusBar.visible": false,
   "workbench.layoutControl.enabled": false,
   "workbench.productIconTheme": "fluent-icons",
   "workbench.iconTheme": "symbols",
-  "emulator.emulatorPathLinux": "~/Android/Sdk/emulator",
   "workbench.colorCustomizations": {
     "terminal.foreground": "#ebdbb2",
     "terminal.ansiBlack": "#1e2127",
@@ -27,22 +28,23 @@
     "terminal.ansiBrightRed": "#e06c75",
     "terminal.ansiBrightWhite": "#ffffff",
     "terminal.ansiBrightYellow": "#d19a66",
-    "terminal.selectionBackground": "#ebdbb2"
+    "terminal.selectionBackground": "#ebdbb2",
   },
   "terminal.integrated.fontFamily": "FiraCode Nerd Font Light",
   "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.mouseWheelScrollSensitivity": 3,
+  "terminal.integrated.gpuAcceleration": "off",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "always",
-    "source.fixAll.markdownlint": "always"
   },
+  "editor.formatOnSave": true,
   "eslint.enable": true,
   "eslint.format.enable": true,
-  "editor.formatOnSave": true,
   "[sql]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
   },
   "[markdown]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
   },
   "errorLens.gutterIconsEnabled": true,
   "errorLens.gutterIconSet": "default",
@@ -65,16 +67,13 @@
   "security.workspace.trust.untrustedFiles": "open",
   "diffEditor.ignoreTrimWhitespace": false,
   "extensions.ignoreRecommendations": true,
-  "window.commandCenter": false,
   "explorer.confirmDragAndDrop": false,
   "chat.commandCenter.enabled": false,
   "symbols.hidesExplorerArrows": true,
   "github.copilot.enable": {
-    "*": false
+    "*": false,
   },
-  "window.customTitleBarVisibility": "never",
   "telemetry.feedback.enabled": false,
   "telemetry.telemetryLevel": "off",
-  "terminal.integrated.mouseWheelScrollSensitivity": 3,
-  "terminal.integrated.gpuAcceleration": "off"
+  "emulator.emulatorPathLinux": "~/Android/Sdk/emulator",
 }

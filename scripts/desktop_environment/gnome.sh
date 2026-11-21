@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "$(dirname "${BASH_SOURCE[0]}")/../lib.sh"
+
 gnome_install() {
   gnome_install_extensions
   gnome_update_theme
@@ -11,11 +13,29 @@ gnome_setup() {
 }
 
 gnome_install_extensions() {
-  EXT_LIST="${RESOURCES}/desktop_environment/gnome/extensions.list"
+  local shell_version installed tmp
 
-  cat $EXT_LIST | while read i || [[ -n $i ]]; do
-    busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Extensions org.gnome.Shell.Extensions InstallRemoteExtension s ${i} &> /dev/null || true
+  shell_version="$(gnome-shell --version | awk '{print $3}' | cut -d. -f1)"
+  installed="$(gnome-extensions list)"
+  tmp="$(mktemp -d)"
+
+  read_list "${RESOURCES}/desktop_environment/gnome/extensions.list" | while read -r uuid; do
+    if ! grep -qxF "$uuid" <<< "$installed"; then
+      local url
+      url="$(curl -fsSL "https://extensions.gnome.org/extension-info/?uuid=${uuid}&shell_version=${shell_version}" | jq -r '.download_url // empty')" || true
+      if [ -z "$url" ]; then
+        warn "No release of $uuid for GNOME Shell ${shell_version}"
+        continue
+      fi
+      curl -fsSL "https://extensions.gnome.org${url}" -o "$tmp/ext.zip"
+      gnome-extensions install --force "$tmp/ext.zip"
+    fi
+
+    gnome-extensions enable "$uuid" 2> /dev/null \
+      || warn "$uuid will be enabled after you log out/in and run this task again"
   done
+
+  rm -rf "$tmp"
 }
 
 gnome_update_theme() {
@@ -45,12 +65,11 @@ gnome_setup_gdm_monitors() {
   # chown $(id -u gdm):$(id -g gdm) ~/.config/monitors.xml
   # sudo chmod 644 ~/.config/monitors.xml
 }
- 
-gnome_update_settings() {
-  SET_LIST="${RESOURCES}/desktop_environment/gnome/sets.list"
 
-  while read set; do
-    cmd="gsettings set $set"
-    $cmd
-  done < ${SET_LIST}
+gnome_update_settings() {
+  read_list "${RESOURCES}/desktop_environment/gnome/sets.list" | while read -r schema key value; do
+    gsettings set "$schema" "$key" "$value"
+  done
 }
+
+run_main "$@"

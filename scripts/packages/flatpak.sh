@@ -1,16 +1,26 @@
 #!/bin/bash
 
-flatpak_setup() {
-  sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+source "$(dirname "${BASH_SOURCE[0]}")/../lib.sh"
 
-  sudo flatpak override --filesystem=$HOME/.themes
-  sudo flatpak override --filesystem=$HOME/.icons
+flatpak_setup() {
+  sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+  sudo flatpak override --filesystem="$HOME/.themes"
+  sudo flatpak override --filesystem="$HOME/.icons"
 }
 
 flatpak_install() {
-  install_packages
+  flatpak_install_packages
 }
 
-install_packages() {
-  grep -vE '^\s*(#|$)' ${RESOURCES}/packages/flatpak/packages.list | xargs sudo flatpak install flathub -y
+flatpak_install_packages() {
+  local packages
+
+  mapfile -t packages < <(read_list "${RESOURCES}/packages/flatpak/packages.list")
+
+  [ ${#packages[@]} -eq 0 ] && return 0
+
+  sudo flatpak install --noninteractive --or-update -y flathub "${packages[@]}"
 }
+
+run_main "$@"
