@@ -41,7 +41,8 @@ Rode `task` (ou `task --list`) para ver todas.
 | `softwares:config` | zsh como shell padrão, ghostty como terminal padrão, `fd`, dotfiles (stow), tmux e extensões do VS Code |
 | `dotfiles:link` | Só (re)cria os links dos dotfiles |
 | `gnome:install` | Instala e ativa as extensões do GNOME |
-| `gnome:setup` | Aplica as configurações do `gsettings` |
+| `gnome:setup` | Aplica as configurações do `gsettings` e das extensões do GNOME |
+| `gnome:dump` | Salva no projeto as configurações atuais das extensões do GNOME |
 
 Ordem do setup completo:
 
@@ -94,6 +95,7 @@ Todas as listas aceitam linhas vazias e comentários com `#`.
 | `resources/packages/rpm/keys.list` | `<nome-do-arquivo-repo> <conteúdo do .repo usando \n>` |
 | `resources/packages/rpm/packages.list` | pacotes vindos dos repositórios rpm acima |
 | `resources/desktop_environment/gnome/extensions.list` | UUID de uma extensão por linha |
+| `resources/desktop_environment/gnome/extensions/<nome>.ini` | `dconf dump` de `/org/gnome/shell/extensions/<nome>/` (gerado pelo `task gnome:dump`) |
 | `resources/desktop_environment/gnome/sets.list` | `<schema> <chave> <valor>` |
 | `resources/misc/softwares/vscode/extensions.list` | ID de uma extensão por linha |
 

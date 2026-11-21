@@ -81,9 +81,14 @@ tasks:
       - bash {{.SCRIPTS}}/desktop_environment/gnome.sh gnome_install
 
   gnome:setup:
-    desc: Apply GNOME settings (gsettings)
+    desc: Apply GNOME settings (gsettings and extensions)
     cmds:
       - bash {{.SCRIPTS}}/desktop_environment/gnome.sh gnome_setup
+
+  gnome:dump:
+    desc: Save the current GNOME extensions settings into the project
+    cmds:
+      - bash {{.SCRIPTS}}/desktop_environment/gnome.sh gnome_dump_extensions_settings
 
   softwares:install:
     desc: Install oh-my-zsh, fnm, sdkman, task and vscode

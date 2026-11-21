@@ -7,9 +7,33 @@ gnome_install() {
   gnome_update_theme
 }
 
+EXTENSIONS_DCONF_PATH="/org/gnome/shell/extensions"
+EXTENSIONS_SETTINGS_DIR="${RESOURCES}/desktop_environment/gnome/extensions"
+
 gnome_setup() {
   gnome_update_settings
+  gnome_load_extensions_settings
   gnome_setup_gdm_monitors
+}
+
+gnome_load_extensions_settings() {
+  local file
+
+  for file in "${EXTENSIONS_SETTINGS_DIR}"/*.ini; do
+    [ -e "$file" ] || continue
+    dconf load "${EXTENSIONS_DCONF_PATH}/$(basename "$file" .ini)/" < "$file"
+  done
+}
+
+gnome_dump_extensions_settings() {
+  local name
+
+  mkdir -p "$EXTENSIONS_SETTINGS_DIR"
+
+  dconf list "${EXTENSIONS_DCONF_PATH}/" | grep '/$' | while read -r name; do
+    name="${name%/}"
+    dconf dump "${EXTENSIONS_DCONF_PATH}/${name}/" > "${EXTENSIONS_SETTINGS_DIR}/${name}.ini"
+  done
 }
 
 gnome_install_extensions() {
