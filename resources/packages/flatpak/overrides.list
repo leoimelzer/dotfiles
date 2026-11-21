@@ -1,0 +1,2 @@
+com.spotify.Client --nosocket=wayland --socket=x11
+dev.vencord.Vesktop --nosocket=wayland --socket=x11

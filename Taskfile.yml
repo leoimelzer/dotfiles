@@ -25,6 +25,7 @@ tasks:
     desc: Full setup for openSUSE (Tumbleweed)
     cmds:
       - task: zypper:install
+      - task: snapper:setup
       - task: softwares:install
       - task: softwares:config
       - task: flatpak:setup
@@ -58,6 +59,11 @@ tasks:
     desc: Install zypper, packman and third-party rpm packages (openSUSE / SLE based)
     cmds:
       - bash {{.SCRIPTS}}/packages/zypper.sh zypper_install
+
+  snapper:setup:
+    desc: Limit how many btrfs snapshots snapper keeps (openSUSE)
+    cmds:
+      - bash {{.SCRIPTS}}/system/snapper.sh snapper_setup
 
   flatpak:setup:
     desc: Add flathub and expose themes/icons to flatpak apps

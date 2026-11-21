@@ -32,6 +32,7 @@ Rode `task` (ou `task --list`) para ver todas.
 | `setup` | Detecta a distro e roda o setup completo dela |
 | `opensuse` / `ubuntu` | Setup completo da distro, na ordem certa |
 | `zypper:install` | Pacotes do zypper, do Packman e de repositórios rpm de terceiros |
+| `snapper:setup` | Limita os snapshots do btrfs: até 6 comuns e 4 importantes, usando no máximo 20% do disco |
 | `apt:install` | Pacotes do apt |
 | `snapd:remove` | Remove os snaps e o snapd, e impede que ele seja reinstalado |
 | `flatpak:setup` | Adiciona o Flathub e libera `~/.themes` e `~/.icons` para os apps flatpak |
@@ -45,7 +46,7 @@ Rode `task` (ou `task --list`) para ver todas.
 Ordem do setup completo:
 
 ```
-opensuse: zypper:install → softwares:install → softwares:config → flatpak:* → gnome:*
+opensuse: zypper:install → snapper:setup → softwares:install → softwares:config → flatpak:* → gnome:*
 ubuntu:   snapd:remove → apt:install → softwares:install → softwares:config → flatpak:* → gnome:*
 ```
 
@@ -87,6 +88,7 @@ Todas as listas aceitam linhas vazias e comentários com `#`.
 | Arquivo | Formato |
 | --- | --- |
 | `resources/packages/{apt,zypper,flatpak}/packages.list` | um pacote por linha |
+| `resources/packages/flatpak/overrides.list` | `<app-id> <argumentos do flatpak override>` |
 | `resources/packages/packman/sources.list` | `<url> <alias>` |
 | `resources/packages/rpm/sources.list` | URL de uma chave GPG por linha |
 | `resources/packages/rpm/keys.list` | `<nome-do-arquivo-repo> <conteúdo do .repo usando \n>` |

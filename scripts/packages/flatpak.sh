@@ -11,6 +11,14 @@ flatpak_setup() {
 
 flatpak_install() {
   flatpak_install_packages
+  flatpak_override_packages
+}
+
+flatpak_override_packages() {
+  read_list "${RESOURCES}/packages/flatpak/overrides.list" | while read -r app args; do
+    read -ra args <<< "$args"
+    flatpak override --user "${args[@]}" "$app"
+  done
 }
 
 flatpak_install_packages() {
