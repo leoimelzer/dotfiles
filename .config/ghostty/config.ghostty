@@ -6,79 +6,10 @@ window-height = 22
 background-opacity = 0.96
 background-blur-radius = 15
 
-# mouse-hide-while-typing = true
-# cursor-style = underline
-# cursor-style-blink = true
-# shell-integration-features = no-cursor
+theme = Catppuccin Mocha
 
-background = #161422
-foreground = #e2e0f0
+cursor-color = #cba6f7
+cursor-text = #1e1e2e
 
-# Cursor e seleção
-cursor-color = #c792ea
-cursor-text = #161422
-selection-background = #3b335c
-selection-foreground = #ffffff
-
-palette = 0=#232034
-palette = 8=#565175
-palette = 1=#f07178
-palette = 9=#ff8b92
-palette = 2=#9ece6a
-palette = 10=#b9f27c
-palette = 3=#e0af68
-palette = 11=#ffcb6b
-palette = 4=#7aa2f7
-palette = 12=#89b4fa
-palette = 5=#bb9af7
-palette = 13=#d2a8ff
-palette = 6=#7dcfff
-palette = 14=#99e2ff
-palette = 7=#c0caf5
-palette = 15=#ffffff
-
-# --- Lovelace --- #
-# background = #1D1F28
-# foreground = #E6E6E6
-# selection-foreground = #E6E6E6
-# selection-background = #2A2D3A
-# cursor-color = #5ADECD
-# cursor-text = #1D1F28
-# palette = 0=#282A36
-# palette = 1=#F37F97
-# palette = 2=#5ADECD
-# palette = 3=#F2A272
-# palette = 4=#7F9EFF
-# palette = 5=#D18FFF
-# palette = 6=#79E6F3
-# palette = 7=#FDFDFD
-# palette = 8=#414458
-# palette = 9=#FF4971
-# palette = 10=#18E3C8
-# palette = 11=#EBCB8B
-# palette = 12=#A3B0FF
-# palette = 13=#D68EFF
-# palette = 14=#3FDCEE
-# palette = 15=#BEBEC1
-
-# --- Taerminal --- #
-# background = #26282a
-# foreground = #f0f0f0
-# cursor-color = #f0f0f0
-# cursor-text = #26282a
-# palette = 0=#26282a
-# palette = 1=#ff8878
-# palette = 2=#b4fb73
-# palette = 3=#fffcb7
-# palette = 4=#8bbce5
-# palette = 5=#ffb2fe
-# palette = 6=#a2e1f8
-# palette = 7=#f1f1f1
-# palette = 8=#6f6f6f
-# palette = 9=#fe978b
-# palette = 10=#d6fcba
-# palette = 11=#fffed5
-# palette = 12=#c2e3ff
-# palette = 13=#ffc6ff
-# palette = 14=#c0e9f8
-# palette = 15=#ffffff
+selection-background = #4b2a69
+selection-foreground = #cdd6f4
