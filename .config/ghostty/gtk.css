@@ -1,0 +1,5 @@
+/* background-opacity also makes the headerbar transparent; keep it opaque like other GTK apps. */
+headerbar,
+headerbar:backdrop {
+  background-color: #1e1e2e;
+}

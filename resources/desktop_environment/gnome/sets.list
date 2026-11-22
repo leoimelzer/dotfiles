@@ -1,4 +1,6 @@
 org.gnome.desktop.interface color-scheme prefer-dark
+org.gnome.desktop.interface icon-theme 'Vivid-Dark-Icons'
+org.gnome.desktop.interface cursor-theme 'Adwaita'
 org.gnome.desktop.default-applications.terminal exec ghostty
 org.gnome.desktop.interface enable-hot-corners false
 org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'

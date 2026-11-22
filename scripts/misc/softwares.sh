@@ -19,12 +19,6 @@ softwares_config() {
   vscode_config
 }
 
-git_clone() {
-  local repo="$1" dest="$2"
-
-  [ -d "$dest/.git" ] || git clone --depth 1 --quiet "$repo" "$dest"
-}
-
 oh_my_zsh_install() {
   local omz_dir="${HOME}/.oh-my-zsh"
   local zsh_custom="${ZSH_CUSTOM:-${omz_dir}/custom}"

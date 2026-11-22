@@ -4,13 +4,17 @@ source "$(dirname "${BASH_SOURCE[0]}")/../lib.sh"
 
 gnome_install() {
   gnome_install_extensions
+  gnome_install_themes
 }
 
 EXTENSIONS_DCONF_PATH="/org/gnome/shell/extensions"
 EXTENSIONS_SETTINGS_DIR="${RESOURCES}/desktop_environment/gnome/extensions"
+THEMES_DIR="${DOTFILES_DIR}/.themes"
+CATPPUCCIN_DIR="${THEMES_DIR}/Catppuccin-GTK-Theme"
 
 gnome_setup() {
   gnome_update_settings
+  gnome_apply_theme
   gnome_load_extensions_settings
   gnome_setup_gdm_monitors
 }
@@ -59,6 +63,30 @@ gnome_install_extensions() {
   done
 
   rm -rf "$tmp"
+}
+
+gnome_install_themes() {
+  local args
+
+  git_clone https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git "$CATPPUCCIN_DIR"
+
+  read_list "${RESOURCES}/desktop_environment/gnome/themes.list" | while read -r args; do
+    # shellcheck disable=SC2086
+    BATCH_MODE=true "${CATPPUCCIN_DIR}/themes/install.sh" -d "$THEMES_DIR" $args < /dev/null
+  done
+}
+
+gnome_apply_theme() {
+  local theme
+
+  mkdir -p "$LOCAL_BIN"
+  ln -sf "${SCRIPTS}/misc/set-theme.sh" "${LOCAL_BIN}/set-theme"
+
+  theme="$(read_list "${RESOURCES}/desktop_environment/gnome/gtk-theme.list" | head -n 1)"
+  [ -n "$theme" ] || return 0
+
+  bash "${SCRIPTS}/misc/set-theme.sh" "$theme" \
+    || warn "Theme $theme is not installed; run 'task gnome:install' first"
 }
 
 gnome_setup_gdm_monitors() {

@@ -5,6 +5,7 @@ window-width = 82
 window-height = 22
 background-opacity = 0.96
 background-blur-radius = 15
+gtk-custom-css = gtk.css
 
 theme = Catppuccin Mocha
 
