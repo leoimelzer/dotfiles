@@ -40,7 +40,7 @@ Rode `task` (ou `task --list`) para ver todas.
 | `softwares:install` | oh-my-zsh e plugins, fnm, sdkman, task e VS Code |
 | `softwares:config` | zsh como shell padrão, ghostty como terminal padrão, `fd`, dotfiles (stow), tmux e extensões do VS Code |
 | `dotfiles:link` | Só (re)cria os links dos dotfiles |
-| `gnome:install` | Instala e ativa as extensões do GNOME e instala os temas GTK Catppuccin |
+| `gnome:install` | Instala e ativa as extensões do GNOME |
 | `gnome:setup` | Aplica as configurações do `gsettings`, das extensões e o tema GTK do GNOME |
 | `gnome:dump` | Salva no projeto as configurações atuais das extensões do GNOME |
 
@@ -97,7 +97,6 @@ Todas as listas aceitam linhas vazias e comentários com `#`.
 | `resources/desktop_environment/gnome/extensions.list` | UUID de uma extensão por linha |
 | `resources/desktop_environment/gnome/extensions/<nome>.ini` | `dconf dump` de `/org/gnome/shell/extensions/<nome>/` (gerado pelo `task gnome:dump`) |
 | `resources/desktop_environment/gnome/sets.list` | `<schema> <chave> <valor>` (inclui tema de ícones e cursor) |
-| `resources/desktop_environment/gnome/themes.list` | argumentos do `install.sh` do Catppuccin-GTK-Theme, uma variante por linha |
 | `resources/desktop_environment/gnome/gtk-theme.list` | nome do tema GTK aplicado pelo `set-theme` |
 | `resources/misc/softwares/vscode/extensions.list` | ID de uma extensão por linha |
 
@@ -105,6 +104,6 @@ As listas de `rpm/` são um modelo para apps que vêm de repositórios rpm de te
 
 ## Etapas manuais
 
-- **Ícones:** copie o `Vivid-Dark-Icons` para `~/.icons` (não é versionado). O nome já é aplicado pelo `sets.list`.
+- **Tema GTK e ícones:** instale à parte em `~/.themes` e `~/.icons` (não são versionados). O `task gnome:setup` aplica o tema de `gtk-theme.list` e os ícones do `sets.list`, se estiverem instalados.
 - **Trocar de tema GTK:** `set-theme <nome>` (sem argumento, lista os temas). Para manter a escolha, atualize `gtk-theme.list`.
 - **Monitores no GDM:** veja os comentários em `gnome_setup_gdm_monitors`.

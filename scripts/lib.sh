@@ -22,12 +22,6 @@ read_list() {
   grep -vE '^\s*(#|$)' "$1" || true
 }
 
-git_clone() {
-  local repo="$1" dest="$2"
-
-  [ -d "$dest/.git" ] || git clone --depth 1 --quiet "$repo" "$dest"
-}
-
 run_main() {
   if [ $# -eq 0 ]; then
     warn "Usage: $0 <function>"
