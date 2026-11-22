@@ -4,7 +4,6 @@ source "$(dirname "${BASH_SOURCE[0]}")/../lib.sh"
 
 gnome_install() {
   gnome_install_extensions
-  gnome_update_theme
 }
 
 EXTENSIONS_DCONF_PATH="/org/gnome/shell/extensions"
@@ -60,22 +59,6 @@ gnome_install_extensions() {
   done
 
   rm -rf "$tmp"
-}
-
-gnome_update_theme() {
-  echo "Skipping theme update, manually install 'GTK_THEME', 'ICON_THEME' and 'CURSOR_THEME' and run source script."
-
-  # GTK_THEME='Colloid-Dark-Gruvbox'
-  # ICON_THEME='Gruvbox-Plus-Dark'
-  # CURSOR_THEME='Simp1e-Gruvbox-Dark'
-  # gsettings set org.gnome.desktop.interface gtk-theme $GTK_THEME
-  # gsettings set org.gnome.desktop.wm.preferences theme $GTK_THEME
-  # gsettings set org.gnome.desktop.interface icon-theme $ICON_THEME
-  # gsettings set org.gnome.desktop.interface cursor-theme $CURSOR_THEME
-  # dconf write /org/gnome/shell/extensions/user-theme/name "'$GTK_THEME'"
-  # rm -rf ~/.config/gtk-4.0 && ln -s ~/.themes/$GTK_THEME/gtk-4.0 ~/.config/gtk-4.0
-  # sudo flatpak override --env=GTK_THEME=$GTK_THEME
-  # sudo flatpak override --env=ICON_THEME=$ICON_THEME
 }
 
 gnome_setup_gdm_monitors() {

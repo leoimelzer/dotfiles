@@ -103,5 +103,5 @@ As listas de `rpm/` são um modelo para apps que vêm de repositórios rpm de te
 
 ## Etapas manuais
 
-- **Temas GTK, ícones e cursor:** instale em `~/.themes` / `~/.icons` e veja os comentários em `gnome_update_theme`.
+- **Temas GTK:** instale em `~/.themes` e aplique com `set-theme <nome>` (`scripts/misc/set-theme.sh`; sem argumento, lista os temas). Ícones e cursor: instale em `~/.icons` e escolha pelo GNOME Tweaks.
 - **Monitores no GDM:** veja os comentários em `gnome_setup_gdm_monitors`.
