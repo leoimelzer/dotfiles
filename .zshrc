@@ -8,19 +8,17 @@ plugins=(
   direnv
 )
 
-#--------------------------------------------------------------------------------------#
-
 ZSH_THEME="essembeh"
 
 source $ZSH/oh-my-zsh.sh
 
-#--------------------------------------------------------------------------------------#
-
 # alias ls="lsd"
 # alias cat="bat"
 alias clipboard="xclip -selection CLIPBOARD"
+alias copy-release='git rev-parse --short=8 HEAD | tr -d "\n" | pbcopy'
 
 export TERM=xterm-256color
+export GPG_TTY=$(tty)
 
 export PATH=$PATH:~/.local/bin
 
