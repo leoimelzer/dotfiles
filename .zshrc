@@ -15,7 +15,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ls="lsd"
 # alias cat="bat"
 alias clipboard="xclip -selection CLIPBOARD"
-alias copy-release='git rev-parse --short=8 HEAD | tr -d "\n" | pbcopy'
+alias copy-release='git rev-parse --short=8 HEAD | tr -d "\n" | clipboard'
 
 export TERM=xterm-256color
 export GPG_TTY=$(tty)

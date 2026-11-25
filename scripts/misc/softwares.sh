@@ -14,6 +14,7 @@ softwares_config() {
   zsh_config
   ghostty_config
   fd_config
+  scrcpy_config
   dotfiles_config
   tmux_config
   vscode_config
@@ -125,6 +126,12 @@ fd_config() {
     mkdir -p "$LOCAL_BIN"
     ln -sfn "$(command -v fdfind)" "$LOCAL_BIN/fd"
   fi
+}
+
+scrcpy_config() {
+  has scrcpy-update-server || return 0
+
+  sudo scrcpy-update-server > /dev/null
 }
 
 dotfiles_config() {
